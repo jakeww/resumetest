@@ -112,74 +112,52 @@ const LandingPage = () => {
       {/* Hero Section - Dark Background */}
       <section style={{ background: '#222733', padding: '100px 0 80px' }}>
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-7">
-              <h1 style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                fontWeight: '900',
-                fontStyle: 'italic',
+          <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h1 style={{
+              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontWeight: '900',
+              fontStyle: 'italic',
+              color: '#ffffff',
+              lineHeight: '1.05',
+              marginBottom: '24px'
+            }}>
+              Stop{' '}
+              <RoughAnnotation type="circle" color="#c1ff72" strokeWidth={3} padding={12} show={heroVisible} animationDuration={1200}>
+                guessing
+              </RoughAnnotation>{' '}
+              why you are getting rejected
+            </h1>
+
+            <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
+              Get your resume reviewed by{' '}
+              <RoughAnnotation type="underline" color="#c1ff72" strokeWidth={2} show={heroVisible} animationDuration={1000}>
+                real HR professionals
+              </RoughAnnotation>{' '}
+              who know exactly what hiring managers are looking for.
+            </p>
+
+            <div className="d-flex flex-wrap gap-3 mb-4 justify-content-center">
+              <span className="tag tag-white">Real Humans</span>
+              <span className="tag tag-white">Real Answers</span>
+              <span className="tag tag-lime">Real Results</span>
+            </div>
+
+            <button
+              onClick={handleScheduleConsult}
+              className="btn btn-lg d-inline-flex align-items-center gap-2"
+              style={{
+                background: '#0966ff',
                 color: '#ffffff',
-                lineHeight: '1.05',
-                marginBottom: '24px'
-              }}>
-                Stop{' '}
-                <RoughAnnotation type="circle" color="#c1ff72" strokeWidth={3} padding={12} show={heroVisible} animationDuration={1200}>
-                  guessing
-                </RoughAnnotation>{' '}
-                why you are getting rejected
-              </h1>
-
-              <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '32px', maxWidth: '550px' }}>
-                Get your resume reviewed by{' '}
-                <RoughAnnotation type="underline" color="#c1ff72" strokeWidth={2} show={heroVisible} animationDuration={1000}>
-                  real HR professionals
-                </RoughAnnotation>{' '}
-                who know exactly what hiring managers are looking for.
-              </p>
-
-              <div className="d-flex flex-wrap gap-3 mb-4">
-                <span className="tag tag-white">Real Humans</span>
-                <span className="tag tag-white">Real Answers</span>
-                <span className="tag tag-lime">Real Results</span>
-              </div>
-
-              <button
-                onClick={handleScheduleConsult}
-                className="btn btn-lg d-inline-flex align-items-center gap-2"
-                style={{
-                  background: '#0966ff',
-                  color: '#ffffff',
-                  fontWeight: '700',
-                  padding: '16px 32px',
-                  borderRadius: '50px',
-                  border: 'none',
-                  fontSize: '1.1rem'
-                }}
-              >
-                Get Results Today
-                <ArrowRight size={20} />
-              </button>
-            </div>
-
-            <div className="col-lg-5 d-none d-lg-block">
-              <div className="d-flex flex-wrap gap-2 justify-content-center">
-                {['Titles', 'Education', 'Names', 'Top Skills', 'Ideas', 'Keywords', 'Dates', 'Contact Info'].map((item, i) => (
-                  <span
-                    key={i}
-                    className="tag"
-                    style={{
-                      background: i % 3 === 0 ? '#ffffff' : i % 3 === 1 ? '#0966ff' : '#c1ff72',
-                      color: i % 3 === 0 ? '#0966ff' : i % 3 === 1 ? '#ffffff' : '#222733',
-                    }}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <p style={{ color: '#ffffff', fontWeight: '800', fontStyle: 'italic', fontSize: '1.5rem', textAlign: 'center', marginTop: '24px' }}>
-                What do recruiters see in the first 7 seconds?
-              </p>
-            </div>
+                fontWeight: '700',
+                padding: '16px 32px',
+                borderRadius: '50px',
+                border: 'none',
+                fontSize: '1.1rem'
+              }}
+            >
+              Get Results Today
+              <ArrowRight size={20} />
+            </button>
           </div>
         </div>
       </section>
