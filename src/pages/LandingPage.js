@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Shield, Lock, CheckCircle,
@@ -9,101 +9,18 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import RoughAnnotation from '../components/RoughAnnotation';
 import OrganicBlob from '../components/OrganicBlob';
-import HandDrawnArrow, { HandDrawnCurvedArrow } from '../components/HandDrawnArrow';
+import HandDrawnArrow from '../components/HandDrawnArrow';
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const reviews = [
-    { name: "Priya S.", location: "Data Analyst", initials: "PS", color: "#0966ff", quote: "Finally, someone who actually explains WHY things need to change instead of just marking up the document. The video breakdown was incredibly thorough.", stars: 5 },
-    { name: "Marcus J.", location: "Recent Graduate", initials: "MJ", color: "#c1ff72", textColor: "#222733", quote: "Went from hearing nothing back to getting calls within days. Can't recommend enough.", stars: 5 },
-    { name: "Tomoko H.", location: "UX Designer", initials: "TH", color: "#0966ff", quote: "I've used other resume services before and they all felt generic. This felt like talking to someone who actually understood my field.", stars: 5 },
-    { name: "Derek W.", location: "Operations Manager", initials: "DW", color: "#c1ff72", textColor: "#222733", quote: "Solid feedback, quick turnaround. My only note is I wish there was a follow-up option included, but overall very happy.", stars: 4 },
-    { name: "Oluwaseun A.", location: "Financial Analyst", initials: "OA", color: "#0966ff", quote: "The ATS stuff alone was worth it. Had no clue my formatting was getting me auto-rejected.", stars: 5 },
-    { name: "Rachel M.", location: "Career Changer", initials: "RM", color: "#c1ff72", textColor: "#222733", quote: "Honestly wasn't sure a resume review would help that much but the live session completely changed how I talk about my experience.", stars: 5 },
-    { name: "Kenji T.", location: "Software Engineer", initials: "KT", color: "#0966ff", quote: "Good overall. Some suggestions felt a bit general but the structure recommendations were spot on.", stars: 4 }
-  ];
-
   const [activeStep, setActiveStep] = useState(0);
   const [heroVisible, setHeroVisible] = useState(false);
-  const scrollContainerRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, scrollLeft: 0 });
-  const pauseTimeoutRef = useRef(null);
-
-  const extendedReviews = [...reviews, ...reviews, ...reviews];
 
   // Trigger hero animation on mount
   useEffect(() => {
     setTimeout(() => setHeroVisible(true), 300);
   }, []);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container || isPaused || isDragging) return;
-
-    let animationId;
-    const singleSetWidth = container.scrollWidth / 3;
-
-    const scroll = () => {
-      container.scrollLeft += 0.5;
-      if (container.scrollLeft >= singleSetWidth * 2) {
-        container.scrollLeft = singleSetWidth;
-      }
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
-  }, [isPaused, isDragging]);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      setTimeout(() => {
-        container.scrollLeft = container.scrollWidth / 3;
-      }, 100);
-    }
-  }, []);
-
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
-  };
-
-  const handleMouseLeave = () => {
-    pauseTimeoutRef.current = setTimeout(() => setIsPaused(false), 3000);
-  };
-
-  const handleMouseDown = (e) => {
-    const container = scrollContainerRef.current;
-    setIsDragging(true);
-    setDragStart({ x: e.pageX - container.offsetLeft, scrollLeft: container.scrollLeft });
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const container = scrollContainerRef.current;
-    const x = e.pageX - container.offsetLeft;
-    container.scrollLeft = dragStart.scrollLeft - (x - dragStart.x) * 2;
-  };
-
-  const handleMouseUp = () => setIsDragging(false);
-
-  const handleTouchStart = (e) => {
-    const container = scrollContainerRef.current;
-    setIsDragging(true);
-    setDragStart({ x: e.touches[0].clientX - container.offsetLeft, scrollLeft: container.scrollLeft });
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
-    const container = scrollContainerRef.current;
-    const x = e.touches[0].clientX - container.offsetLeft;
-    container.scrollLeft = dragStart.scrollLeft - (x - dragStart.x) * 2;
-  };
 
   return (
     <div className="min-vh-100 d-flex flex-column" style={{ background: '#222733' }}>
