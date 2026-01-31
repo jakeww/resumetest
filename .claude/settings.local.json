@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pkill:*)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "WebSearch",
+      "Bash(find:*)"
     ]
   }
 }

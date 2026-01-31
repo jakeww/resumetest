@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleScheduleConsult = () => {
-    const pricingSection = document.getElementById('pricing-section');
-    if (pricingSection) {
-      pricingSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleGetResults = () => {
+    navigate('/results');
   };
 
   const navLinkStyle = (path) => ({
@@ -83,7 +81,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <button
-                onClick={handleScheduleConsult}
+                onClick={handleGetResults}
                 className="btn d-flex align-items-center gap-2"
                 style={{
                   background: '#c1ff72',
@@ -91,8 +89,11 @@ const Header = () => {
                   color: '#222733',
                   fontWeight: '700',
                   padding: '10px 24px',
-                  borderRadius: '50px',
-                  transition: 'all 0.2s ease'
+                  borderRadius: '12px',
+                  transition: 'all 0.2s ease',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  fontSize: '0.9rem'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.background = '#b3f05e';
