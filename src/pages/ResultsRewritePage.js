@@ -2,30 +2,12 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { CheckCircle, Video, FileText, MessageSquare, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 
-const ResultsAuditPage = () => {
+const ResultsRewritePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const features = [
-    {
-      icon: <Video size={24} aria-hidden="true" />,
-      title: 'Video Diagnostic',
-      description: 'Watch a recruiter review your resume in real-time'
-    },
-    {
-      icon: <FileText size={24} aria-hidden="true" />,
-      title: 'Resume Scorecard',
-      description: 'Clear grades on formatting, narrative, and metrics'
-    },
-    {
-      icon: <MessageSquare size={24} aria-hidden="true" />,
-      title: 'Line-by-Line Markups',
-      description: 'Specific comments on what to cut, keep, and improve'
-    }
-  ];
 
   return (
     <div style={{ background: '#222733', minHeight: '100vh' }}>
@@ -68,7 +50,7 @@ const ResultsAuditPage = () => {
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
               }}>
-                $69, No Scheduling Required
+                $109, 72 Hour Turnaround
               </div>
 
               <h1 style={{
@@ -78,7 +60,7 @@ const ResultsAuditPage = () => {
                 color: '#222733',
                 marginBottom: '16px'
               }}>
-                Resume Audit
+                Resume Rewrite
               </h1>
               <p style={{
                 fontSize: '1.1rem',
@@ -86,45 +68,35 @@ const ResultsAuditPage = () => {
                 marginBottom: '32px',
                 lineHeight: '1.6'
               }}>
-                Upload your resume, pay securely, and receive your personalized video review within 72 hours.
+                Submit your resume or background information and receive a professionally written resume along with a personalized video that explains the new document.
               </p>
 
               {/* What's Included */}
               <div className="d-flex flex-column gap-3">
-                {features.map((feature, index) => (
-                  <div key={index} className="d-flex align-items-start gap-3">
-                    <div style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '12px',
-                      background: 'rgba(9, 102, 255, 0.1)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#0966ff',
-                      flexShrink: 0
-                    }}>
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h4 style={{
-                        color: '#222733',
-                        fontSize: '1rem',
-                        fontWeight: '700',
-                        marginBottom: '4px'
-                      }}>
-                        {feature.title}
-                      </h4>
-                      <p style={{
-                        color: '#64748b',
-                        fontSize: '0.9rem',
-                        margin: 0
-                      }}>
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                <div>
+                  <h4 style={{ color: '#222733', fontSize: '1rem', fontWeight: '700', marginBottom: '8px' }}>
+                    Complete Resume Rewrite
+                  </h4>
+                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>
+                    We write your resume from scratch, optimized for your target role
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ color: '#222733', fontSize: '1rem', fontWeight: '700', marginBottom: '8px' }}>
+                    Personalized Video Walkthrough
+                  </h4>
+                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>
+                    Detailed explanation of every section and why it works
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ color: '#222733', fontSize: '1rem', fontWeight: '700', marginBottom: '8px' }}>
+                    No Resume? No Problem.
+                  </h4>
+                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>
+                    Just submit your background info and we'll create one for you
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -137,9 +109,9 @@ const ResultsAuditPage = () => {
         padding: '0'
       }}>
         <iframe
-          data-tally-src="https://tally.so/r/Xx0GBd"
-          src="https://tally.so/r/Xx0GBd"
-          title="Resume Audit Form"
+          data-tally-src="https://tally.so/r/WOz0ZQ"
+          src="https://tally.so/r/WOz0ZQ"
+          title="Resume Rewrite Form"
           width="100%"
           height="1400"
           frameBorder="0"
@@ -171,10 +143,10 @@ const ResultsAuditPage = () => {
             <div className="col-lg-8">
               <div className="d-flex flex-column gap-4">
                 {[
-                  { step: 1, text: 'Upload your current resume and complete payment' },
-                  { step: 2, text: 'A verified recruiter reviews your resume within 72 hours' },
-                  { step: 3, text: 'Receive your video diagnostic and written feedback via email' },
-                  { step: 4, text: 'Apply the changes and start getting callbacks' }
+                  { step: 1, text: 'Submit your current resume or background information' },
+                  { step: 2, text: 'We analyze your experience and target role' },
+                  { step: 3, text: 'A recruiter writes your new resume from scratch' },
+                  { step: 4, text: 'Receive your new resume and video walkthrough within 72 hours' }
                 ].map((item) => (
                   <div key={item.step} className="d-flex align-items-start gap-3">
                     <div style={{
@@ -222,7 +194,7 @@ const ResultsAuditPage = () => {
               fontWeight: '600',
               margin: 0
             }}>
-              100% Human Review. Your resume is reviewed by a real recruiter, not an algorithm.
+              100% Human Written. Your resume is crafted by a real recruiter, not AI.
             </p>
           </div>
         </div>
@@ -234,4 +206,4 @@ const ResultsAuditPage = () => {
   );
 };
 
-export default ResultsAuditPage;
+export default ResultsRewritePage;

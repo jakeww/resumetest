@@ -36,6 +36,7 @@ const ResultsBundlePage = () => {
     <div style={{ background: '#222733', minHeight: '100vh' }}>
       <Header />
 
+      <main id="main-content" role="main">
       {/* Hero Section */}
       <section style={{
         background: '#222733',
@@ -72,7 +73,7 @@ const ResultsBundlePage = () => {
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
               }}>
-                $229 - Complete Package
+                $229, Complete Package
               </div>
 
               <h1 style={{
@@ -183,7 +184,7 @@ const ResultsBundlePage = () => {
       }}>
         <div className="container">
           <div className="d-flex justify-content-center align-items-center gap-2">
-            <CheckCircle size={20} color="#ffffff" />
+            <CheckCircle size={20} color="#ffffff" aria-hidden="true" />
             <p style={{
               color: '#ffffff',
               fontSize: '1rem',
@@ -195,6 +196,7 @@ const ResultsBundlePage = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

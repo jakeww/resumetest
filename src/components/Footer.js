@@ -28,10 +28,22 @@ const Footer = () => {
               <Link to="/services" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Services</Link>
               <Link to="/about" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>About</Link>
               <Link to="/faq" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>FAQ</Link>
+              <Link to="/contact" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Contact</Link>
             </div>
           </div>
 
           <div className="col-md-4 text-md-end">
+            <div className="d-flex justify-content-md-end gap-3 mb-2">
+              <Link to="/terms" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.8rem' }}>
+                Terms
+              </Link>
+              <Link to="/privacy" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.8rem' }}>
+                Privacy
+              </Link>
+              <Link to="/accessibility" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.8rem' }}>
+                Accessibility
+              </Link>
+            </div>
             <p className="mb-0 small" style={{ color: '#94a3b8' }}>
               &copy; {currentYear} The Resume Test
             </p>

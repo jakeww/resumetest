@@ -4,7 +4,9 @@
       "Bash(pkill:*)",
       "Bash(kill:*)",
       "WebSearch",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(ls:*)"
     ]
   }
 }

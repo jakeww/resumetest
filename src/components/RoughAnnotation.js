@@ -51,8 +51,8 @@ const RoughAnnotation = ({
   }, [show]);
 
   return (
-    <span ref={elementRef} style={{ display: 'inline' }}>
-      {children}
+    <span ref={elementRef} style={{ display: 'inline', position: 'relative' }}>
+      <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
     </span>
   );
 };

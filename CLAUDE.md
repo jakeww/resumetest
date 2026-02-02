@@ -56,12 +56,13 @@ To empower job seekers by providing a "concierge" career service that replaces a
   - Accent: #c1ff72 (lime green)
   - Dark: #222733 (dark blue)
   - White: #ffffff
-- **Font:** Poppins (Google Fonts) - weights 400-900, with italic
-- **Style:** Bold, modern, energetic - matches social media posts
-- **No emojis** - uses Lucide icons instead
-- **Border radius:** 50px for buttons (pill-shaped), 16-20px for cards
+- **Font:** Poppins (Google Fonts), weights 400 to 900, with italic
+- **Style:** Bold, modern, energetic, matches social media posts
+- **No emojis**, uses Lucide icons instead
+- **No hyphens or dashes in user-facing text**, use commas instead (e.g., "$69, No Scheduling Required" not "$69 - No Scheduling Required")
+- **Border radius:** 50px for buttons (pill shaped), 16 to 20px for cards
 - **Headlines:** Bold italic (fontWeight: 900, fontStyle: italic)
-- **Tags/badges:** Pill-shaped with uppercase text
+- **Tags/badges:** Pill shaped with uppercase text
 
 ### Service Tiers
 1. **"Redline" Audit** ($69) - Async email review, 72hr turnaround
@@ -87,7 +88,47 @@ All reviewers must have:
 - Minimum of a Bachelor's Degree
 - Completion of "The Resume Test" efficiency training program
 
+### Contact Information
+- **Email:** team@theresumetest.com (this is the only email address for the business)
+- **Location:** Denver, Colorado
+
 ### Key Messaging
 - Core Hook: "An Algorithm Can't Read Between the Lines"
 - Anti-AI positioning: "AI writes for the average; we write for the exception"
 - The "Diagnostic Method": We identify specific "red flags" causing rejection
+
+### Service Details
+
+**Asynchronous Services (Video Delivered)**
+The Resume Audit and Resume Rewrite are asynchronous, meaning clients submit and we deliver within 72 business hours. The advantage is flexibility - busy professionals don't need to squeeze into time slots.
+
+**Resume Audit ($69):**
+- Client submits resume
+- We analyze and identify key issues (ATS keywords, formatting, dates, etc.)
+- Record a video reviewing the resume as a recruiter would
+- Provide detailed feedback on what's working and what needs fixing
+- Client makes the changes themselves with our guidance
+
+**Resume Rewrite ($109):**
+- Client submits resume OR just background info (no resume required)
+- We fully rewrite or create the resume from scratch
+- Record a video comparing old vs new, explaining all changes
+- Premium async option with higher ROI
+
+**Synchronous Services (Live Call)**
+The Workshop and Bundle are live Zoom sessions at scheduled times.
+
+**Resume Workshop ($129):**
+- Live 45-minute Zoom meeting
+- Review resume and background together
+- Make edits in real-time with the client
+- Can create resume from scratch if needed
+- Client can ask questions throughout
+- Session recording provided
+
+**Workshop + Interview Practice ($229):**
+- Most comprehensive package
+- Starts with a mock interview tailored to their industry/role
+- Post-interview breakdown (body language, appearance, professionalism)
+- Then full resume workshop with live rewrite
+- Helps reduce interview anxiety and identify issues

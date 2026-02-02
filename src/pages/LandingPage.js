@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Shield, Lock, CheckCircle,
-  Award, TrendingUp, BarChart3, Mail, Video, Users, Briefcase,
-  XCircle, Upload, ClipboardList, PlayCircle, FileText, CheckSquare, ArrowRight
+  Shield, CheckCircle, Award, Mail, Video, Users,
+  Upload, ClipboardList, PlayCircle, FileText, CheckSquare, ArrowRight
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -26,6 +25,7 @@ const LandingPage = () => {
     <div className="min-vh-100 d-flex flex-column" style={{ background: '#222733' }}>
       <Header />
 
+      <main id="main-content" role="main">
       {/* Hero Section - Dark Background */}
       <section style={{ background: '#222733', padding: '120px 0 100px' }}>
         <div className="container">
@@ -75,7 +75,7 @@ const LandingPage = () => {
                 }}
               >
                 Fix Your Resume Today
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden="true" />
               </button>
             </div>
 
@@ -106,20 +106,20 @@ const LandingPage = () => {
       </section>
 
       {/* Trust Bar */}
-      <section style={{ background: '#0966ff', padding: '40px 0' }}>
+      <section style={{ background: '#ffffff', padding: '40px 0' }}>
         <div className="container">
           <div className="d-flex justify-content-center align-items-center gap-5 flex-wrap">
             <div className="d-flex align-items-center gap-2">
-              <Shield size={20} style={{ color: '#ffffff' }} />
-              <span style={{ color: '#ffffff', fontWeight: '600' }}>Data Protected</span>
+              <Shield size={20} style={{ color: '#0966ff' }} aria-hidden="true" />
+              <span style={{ color: '#222733', fontWeight: '600' }}>Data Protected</span>
             </div>
             <div className="d-flex align-items-center gap-2">
-              <Award size={20} style={{ color: '#ffffff' }} />
-              <span style={{ color: '#ffffff', fontWeight: '600' }}>Expert Reviewed</span>
+              <Award size={20} style={{ color: '#0966ff' }} aria-hidden="true" />
+              <span style={{ color: '#222733', fontWeight: '600' }}>Expert Reviewed</span>
             </div>
             <div className="d-flex align-items-center gap-2">
-              <Users size={20} style={{ color: '#ffffff' }} />
-              <span style={{ color: '#ffffff', fontWeight: '600' }}>100% Human Attention</span>
+              <Users size={20} style={{ color: '#0966ff' }} aria-hidden="true" />
+              <span style={{ color: '#222733', fontWeight: '600' }}>100% Human Attention</span>
             </div>
           </div>
         </div>
@@ -215,16 +215,16 @@ const LandingPage = () => {
       */}
       {/* END HIDDEN TESTIMONIALS SECTION */}
 
-      {/* Results Section - White Background */}
-      <section style={{ background: '#ffffff', padding: '120px 0' }}>
+      {/* Results Section - Dark Blue Background */}
+      <section style={{ background: '#222733', padding: '120px 0' }}>
         <div className="container">
           <div className="text-center mb-5">
             <span className="tag mb-3" style={{
               display: 'inline-block',
               padding: '8px 20px',
               borderRadius: '12px',
-              background: 'rgba(9, 102, 255, 0.1)',
-              color: '#0966ff',
+              background: 'rgba(193, 255, 114, 0.15)',
+              color: '#c1ff72',
               fontWeight: '700',
               fontSize: '0.85rem',
               textTransform: 'uppercase',
@@ -232,13 +232,14 @@ const LandingPage = () => {
             }}>
               What You Get
             </span>
-            <h2 style={{ color: '#222733', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}>
+            <h2 style={{ color: '#ffffff', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}>
               Finally Understand{' '}
               <RoughAnnotation type="underline" color="#c1ff72" strokeWidth={3} show={heroVisible} animationDuration={1000}>
-                Why You're Not Getting Callbacks
-              </RoughAnnotation>
+                Why
+              </RoughAnnotation>{' '}
+              You're Not Getting Callbacks
             </h2>
-            <p style={{ color: '#64748b', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
+            <p style={{ color: '#94a3b8', maxWidth: '700px', margin: '0 auto', fontSize: '1.1rem' }}>
               Our experts identify the gaps, fix the issues, and get your resume into the hands of recruiters who matter.
             </p>
           </div>
@@ -246,10 +247,7 @@ const LandingPage = () => {
           {/* Results Grid */}
           <div className="row justify-content-center g-4 mb-5">
             <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(0,0,0,0.08)' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(9, 102, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                  <ClipboardList size={28} style={{ color: '#0966ff' }} />
-                </div>
+              <div style={{ background: '#ffffff', borderRadius: '20px', padding: '32px', height: '100%' }}>
                 <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '12px' }}>Identify the Gaps</h4>
                 <p style={{ color: '#64748b', margin: 0, lineHeight: '1.6' }}>
                   Find out exactly what's missing from your resume and why recruiters are passing you over.
@@ -258,42 +256,31 @@ const LandingPage = () => {
             </div>
 
             <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(0,0,0,0.08)' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(9, 102, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                  <CheckSquare size={28} style={{ color: '#0966ff' }} />
-                </div>
-                <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '12px' }}>Beat the ATS Filters</h4>
-                <p style={{ color: '#64748b', margin: 0, lineHeight: '1.6' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <h4 style={{ color: '#ffffff', fontWeight: '800', marginBottom: '12px' }}>Beat the ATS Filters</h4>
+                <p style={{ color: '#94a3b8', margin: 0, lineHeight: '1.6' }}>
                   Get past automated screening systems that reject resumes before humans ever see them.
                 </p>
               </div>
             </div>
 
             <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(0,0,0,0.08)' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(9, 102, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                  <Users size={28} style={{ color: '#0966ff' }} />
-                </div>
-                <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '12px' }}>Get to Real Recruiters</h4>
-                <p style={{ color: '#64748b', margin: 0, lineHeight: '1.6' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <RoughAnnotation type="circle" color="#0966ff" strokeWidth={2} padding={6} show={heroVisible} animationDuration={1000}>
+                  <h4 style={{ color: '#ffffff', fontWeight: '800', marginBottom: '12px' }}>Get to Real Recruiters</h4>
+                </RoughAnnotation>
+                <p style={{ color: '#94a3b8', margin: 0, lineHeight: '1.6' }}>
                   Land your resume on the desk of hiring managers who can actually make decisions.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Before/After Comparison */}
-          <div className="row justify-content-center g-4 position-relative">
-            <div className="d-none d-lg-block" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
-              <HandDrawnArrow color="#c1ff72" width={100} height={50} strokeWidth={4} direction="right" />
-            </div>
-
+          {/* Problem/Solution Comparison */}
+          <div className="row justify-content-center align-items-center g-3">
             <div className="col-lg-5 col-md-6">
-              <div style={{ background: '#222733', borderRadius: '20px', padding: '32px', height: '100%' }}>
-                <div className="d-flex align-items-center mb-4">
-                  <XCircle size={28} style={{ color: '#94a3b8', marginRight: '12px' }} />
-                  <h4 style={{ color: '#ffffff', fontWeight: '800', margin: 0 }}>Before</h4>
-                </div>
+              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', height: '100%', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <h4 style={{ color: '#ffffff', fontWeight: '800', marginBottom: '16px' }}>The Problem</h4>
 
                 <div style={{ marginBottom: '24px', position: 'relative' }}>
                   <img
@@ -308,28 +295,30 @@ const LandingPage = () => {
                 </div>
 
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                    <XCircle size={18} style={{ color: '#64748b', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#94a3b8' }}>Sending applications into the void</span>
+                  <li style={{ color: '#94a3b8', marginBottom: '10px', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    Sending applications into the void
                   </li>
-                  <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                    <XCircle size={18} style={{ color: '#64748b', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#94a3b8' }}>No idea why you're being rejected</span>
+                  <li style={{ color: '#94a3b8', marginBottom: '10px', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    No idea why you're being rejected
                   </li>
-                  <li style={{ display: 'flex', alignItems: 'center' }}>
-                    <XCircle size={18} style={{ color: '#64748b', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#94a3b8' }}>Guessing what recruiters want</span>
+                  <li style={{ color: '#94a3b8', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    Guessing what recruiters want
                   </li>
                 </ul>
               </div>
             </div>
 
+            {/* Arrow between cards */}
+            <div className="col-auto d-none d-lg-flex align-items-center justify-content-center" style={{ padding: '0 10px' }}>
+              <HandDrawnArrow color="#c1ff72" width={80} height={40} strokeWidth={4} direction="right" />
+            </div>
+
             <div className="col-lg-5 col-md-6">
               <div style={{ background: '#c1ff72', borderRadius: '20px', padding: '32px', height: '100%' }}>
-                <div className="d-flex align-items-center mb-4">
-                  <CheckCircle size={28} style={{ color: '#222733', marginRight: '12px' }} />
-                  <h4 style={{ color: '#222733', fontWeight: '800', margin: 0 }}>After</h4>
-                </div>
+                <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '16px' }}>The Solution</h4>
 
                 <div style={{ marginBottom: '24px', position: 'relative' }}>
                   <img
@@ -343,17 +332,17 @@ const LandingPage = () => {
                 </div>
 
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                    <CheckCircle size={18} style={{ color: '#222733', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#222733', fontWeight: '500' }}>Getting callbacks within days</span>
+                  <li style={{ color: '#222733', fontWeight: '500', marginBottom: '10px', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    Getting callbacks within days
                   </li>
-                  <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                    <CheckCircle size={18} style={{ color: '#222733', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#222733', fontWeight: '500' }}>Knowing exactly what to fix</span>
+                  <li style={{ color: '#222733', fontWeight: '500', marginBottom: '10px', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    Knowing exactly what to fix
                   </li>
-                  <li style={{ display: 'flex', alignItems: 'center' }}>
-                    <CheckCircle size={18} style={{ color: '#222733', marginRight: '10px', flexShrink: 0 }} />
-                    <span style={{ color: '#222733', fontWeight: '500' }}>Confident your resume works</span>
+                  <li style={{ color: '#222733', fontWeight: '500', paddingLeft: '16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>—</span>
+                    Confident your resume works
                   </li>
                 </ul>
               </div>
@@ -362,8 +351,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ChatGPT Section - Dark Background */}
-      <section style={{ background: '#222733', padding: '100px 0' }}>
+      {/* ChatGPT Section - White Background */}
+      <section style={{ background: '#ffffff', padding: '100px 0' }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-5 mb-lg-0">
@@ -371,8 +360,8 @@ const LandingPage = () => {
                 display: 'inline-block',
                 padding: '8px 20px',
                 borderRadius: '12px',
-                background: 'rgba(193, 255, 114, 0.15)',
-                color: '#c1ff72',
+                background: 'rgba(9, 102, 255, 0.1)',
+                color: '#0966ff',
                 fontWeight: '700',
                 fontSize: '0.85rem',
                 textTransform: 'uppercase',
@@ -380,21 +369,20 @@ const LandingPage = () => {
               }}>
                 Why Human Review
               </span>
-              <h2 style={{ color: '#ffffff', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '24px', lineHeight: '1.1' }}>
-                ChatGPT Can't Get You Hired.{' '}
-                <RoughAnnotation type="underline" color="#c1ff72" strokeWidth={3} show={heroVisible} animationDuration={1000}>
-                  We Can.
+              <h2 style={{ color: '#222733', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '24px', lineHeight: '1.1' }}>
+                <RoughAnnotation type="circle" color="#c1ff72" strokeWidth={3} padding={8} show={heroVisible} animationDuration={1000}>
+                  ChatGPT Can't Get You Hired. We Can.
                 </RoughAnnotation>
               </h2>
-              <p style={{ color: '#94a3b8', fontSize: '1.15rem', marginBottom: '32px', lineHeight: '1.7' }}>
-                AI writes for the average. We write for the exception. Our human experts understand the nuance that algorithms miss - career gaps, industry pivots, soft skills that matter.
+              <p style={{ color: '#64748b', fontSize: '1.15rem', marginBottom: '32px', lineHeight: '1.7' }}>
+                AI writes for the average. We write for the exception. Our human experts understand the nuance that algorithms miss, career gaps, industry pivots, soft skills that matter.
               </p>
               <button
                 onClick={() => navigate('/results')}
                 className="btn btn-lg d-inline-flex align-items-center gap-2"
                 style={{
-                  background: '#c1ff72',
-                  color: '#222733',
+                  background: '#0966ff',
+                  color: '#ffffff',
                   fontWeight: '800',
                   padding: '18px 36px',
                   borderRadius: '12px',
@@ -405,37 +393,22 @@ const LandingPage = () => {
                 }}
               >
                 Get Human Help
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden="true" />
               </button>
             </div>
             <div className="col-lg-6">
-              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="d-flex align-items-start mb-4">
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#0966ff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '16px', flexShrink: 0 }}>
-                    <Users size={24} style={{ color: '#ffffff' }} />
-                  </div>
-                  <div>
-                    <h5 style={{ color: '#ffffff', fontWeight: '700', marginBottom: '4px' }}>Real recruiters reviewing your resume</h5>
-                    <p style={{ color: '#94a3b8', margin: 0 }}>Not a bot. Not an algorithm. A person who has hired hundreds of candidates.</p>
-                  </div>
+              <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', border: '1px solid rgba(0,0,0,0.08)' }}>
+                <div style={{ marginBottom: '24px' }}>
+                  <h5 style={{ color: '#222733', fontWeight: '700', marginBottom: '8px' }}>Real recruiters reviewing your resume</h5>
+                  <p style={{ color: '#64748b', margin: 0 }}>Not a bot. Not an algorithm. A person who has hired hundreds of candidates.</p>
                 </div>
-                <div className="d-flex align-items-start mb-4">
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#0966ff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '16px', flexShrink: 0 }}>
-                    <Video size={24} style={{ color: '#ffffff' }} />
-                  </div>
-                  <div>
-                    <h5 style={{ color: '#ffffff', fontWeight: '700', marginBottom: '4px' }}>Personalized video feedback</h5>
-                    <p style={{ color: '#94a3b8', margin: 0 }}>Watch a recruiter review your resume and explain exactly what to change.</p>
-                  </div>
+                <div style={{ marginBottom: '24px' }}>
+                  <h5 style={{ color: '#222733', fontWeight: '700', marginBottom: '8px' }}>Personalized video feedback</h5>
+                  <p style={{ color: '#64748b', margin: 0 }}>Watch a recruiter review your resume and explain exactly what to change.</p>
                 </div>
-                <div className="d-flex align-items-start">
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#0966ff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '16px', flexShrink: 0 }}>
-                    <TrendingUp size={24} style={{ color: '#ffffff' }} />
-                  </div>
-                  <div>
-                    <h5 style={{ color: '#ffffff', fontWeight: '700', marginBottom: '4px' }}>Results that actually work</h5>
-                    <p style={{ color: '#94a3b8', margin: 0 }}>87% of our clients see more interview requests within weeks.</p>
-                  </div>
+                <div>
+                  <h5 style={{ color: '#222733', fontWeight: '700', marginBottom: '8px' }}>Results that actually work</h5>
+                  <p style={{ color: '#64748b', margin: 0 }}>87% of our clients see more interview requests within weeks.</p>
                 </div>
               </div>
             </div>
@@ -443,16 +416,16 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* 5-Step Process - White */}
-      <section style={{ background: '#ffffff', padding: '120px 0' }}>
+      {/* 5-Step Process - Dark Blue */}
+      <section style={{ background: '#222733', padding: '120px 0' }}>
         <div className="container">
           <div className="text-center mb-5">
             <span className="tag mb-3" style={{
               display: 'inline-block',
               padding: '8px 20px',
               borderRadius: '12px',
-              background: 'rgba(9, 102, 255, 0.1)',
-              color: '#0966ff',
+              background: 'rgba(193, 255, 114, 0.15)',
+              color: '#c1ff72',
               fontWeight: '700',
               fontSize: '0.85rem',
               textTransform: 'uppercase',
@@ -460,13 +433,13 @@ const LandingPage = () => {
             }}>
               How It Works
             </span>
-            <h2 style={{ color: '#222733', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}>
-              <RoughAnnotation type="box" color="#0966ff" strokeWidth={2} padding={6} show={heroVisible} animationDuration={1000}>
+            <h2 style={{ color: '#ffffff', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}>
+              <RoughAnnotation type="box" color="#c1ff72" strokeWidth={2} padding={6} show={heroVisible} animationDuration={1000}>
                 5 Steps
               </RoughAnnotation>{' '}
               to a Better Resume
             </h2>
-            <p style={{ color: '#64748b', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+            <p style={{ color: '#94a3b8', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
               We don't just edit. We transform how you present yourself.
             </p>
           </div>
@@ -475,43 +448,50 @@ const LandingPage = () => {
             <div className="col-lg-10">
               {/* Progress Steps */}
               <div className="d-flex justify-content-between align-items-center position-relative mb-5">
-                <div style={{ position: 'absolute', top: '50%', left: '10%', right: '10%', height: '3px', background: '#e2e8f0', transform: 'translateY(-50%)', zIndex: 0 }}>
-                  <div style={{ height: '100%', width: `${(activeStep / 4) * 100}%`, background: '#0966ff', transition: 'width 0.3s ease' }} />
+                <div style={{ position: 'absolute', top: '50%', left: '10%', right: '10%', height: '3px', background: 'rgba(255,255,255,0.2)', transform: 'translateY(-50%)', zIndex: 0 }}>
+                  <div style={{ height: '100%', width: `${(activeStep / 4) * 100}%`, background: '#c1ff72', transition: 'width 0.3s ease' }} />
                 </div>
 
                 {[
                   { step: 1, title: "Submit", icon: Upload },
-                  { step: 2, title: "Grade", icon: ClipboardList },
+                  { step: 2, title: "Analyze", icon: ClipboardList },
                   { step: 3, title: "Video", icon: PlayCircle },
                   { step: 4, title: "Edits", icon: FileText },
                   { step: 5, title: "Apply", icon: CheckSquare }
                 ].map((item, index) => (
-                  <div key={index} className="text-center position-relative" style={{ zIndex: 1, cursor: 'pointer' }} onClick={() => setActiveStep(index)}>
+                  <button
+                    key={index}
+                    className="text-center position-relative"
+                    style={{ zIndex: 1, cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
+                    onClick={() => setActiveStep(index)}
+                    aria-label={`Step ${item.step}: ${item.title}${index < activeStep ? ' (completed)' : index === activeStep ? ' (current)' : ''}`}
+                    aria-current={index === activeStep ? 'step' : undefined}
+                  >
                     <div style={{
                       width: '56px', height: '56px', borderRadius: '50%',
-                      background: index <= activeStep ? '#0966ff' : '#e2e8f0',
-                      border: index === activeStep ? '3px solid #222733' : 'none',
+                      background: index <= activeStep ? '#c1ff72' : 'rgba(255,255,255,0.2)',
+                      border: index === activeStep ? '3px solid #ffffff' : 'none',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       transition: 'all 0.3s ease', transform: index === activeStep ? 'scale(1.15)' : 'scale(1)',
                       margin: '0 auto 8px'
                     }}>
                       {index < activeStep ? (
-                        <CheckCircle size={24} style={{ color: '#ffffff' }} />
+                        <CheckCircle size={24} style={{ color: '#222733' }} aria-hidden="true" />
                       ) : (
-                        <item.icon size={24} style={{ color: index <= activeStep ? '#ffffff' : '#64748b' }} />
+                        <item.icon size={24} style={{ color: index <= activeStep ? '#222733' : '#94a3b8' }} aria-hidden="true" />
                       )}
                     </div>
-                    <small style={{ color: index <= activeStep ? '#222733' : '#64748b', fontWeight: index === activeStep ? '700' : '500', fontSize: '0.8rem' }}>
+                    <small style={{ color: index <= activeStep ? '#ffffff' : '#94a3b8', fontWeight: index === activeStep ? '700' : '500', fontSize: '0.8rem' }}>
                       {item.title}
                     </small>
-                  </div>
+                  </button>
                 ))}
               </div>
 
               {/* Step Content */}
-              <div style={{ background: '#222733', borderRadius: '20px', padding: '48px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '48px', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <OrganicBlob
-                  color="#0966ff"
+                  color="#c1ff72"
                   size={300}
                   opacity={0.1}
                   variant={2}
@@ -520,14 +500,14 @@ const LandingPage = () => {
                 <div className="row align-items-center" style={{ minHeight: '220px', position: 'relative', zIndex: 1 }}>
                   <div className="col-md-7 mb-4 mb-md-0">
                     <div className="d-flex align-items-center mb-3">
-                      {activeStep === 0 && <Upload size={36} style={{ color: '#0966ff', marginRight: '16px' }} />}
-                      {activeStep === 1 && <ClipboardList size={36} style={{ color: '#0966ff', marginRight: '16px' }} />}
-                      {activeStep === 2 && <PlayCircle size={36} style={{ color: '#0966ff', marginRight: '16px' }} />}
-                      {activeStep === 3 && <FileText size={36} style={{ color: '#0966ff', marginRight: '16px' }} />}
-                      {activeStep === 4 && <CheckSquare size={36} style={{ color: '#c1ff72', marginRight: '16px' }} />}
+                      {activeStep === 0 && <Upload size={36} style={{ color: '#0966ff', marginRight: '16px' }} aria-hidden="true" />}
+                      {activeStep === 1 && <ClipboardList size={36} style={{ color: '#0966ff', marginRight: '16px' }} aria-hidden="true" />}
+                      {activeStep === 2 && <PlayCircle size={36} style={{ color: '#0966ff', marginRight: '16px' }} aria-hidden="true" />}
+                      {activeStep === 3 && <FileText size={36} style={{ color: '#0966ff', marginRight: '16px' }} aria-hidden="true" />}
+                      {activeStep === 4 && <CheckSquare size={36} style={{ color: '#c1ff72', marginRight: '16px' }} aria-hidden="true" />}
                       <h3 style={{ color: '#ffffff', fontWeight: '800', margin: 0 }}>
                         {activeStep === 0 && "Step 1: Submit Your Resume"}
-                        {activeStep === 1 && "Step 2: Get Your Grade"}
+                        {activeStep === 1 && "Step 2: We Analyze"}
                         {activeStep === 2 && "Step 3: Watch Your Video"}
                         {activeStep === 3 && "Step 4: Get Your Edits"}
                         {activeStep === 4 && "Step 5: Start Applying"}
@@ -550,7 +530,7 @@ const LandingPage = () => {
                       </button>
                     )}
                   </div>
-                  <div className="col-md-5 text-center">
+                  <div className="col-md-5 text-center" aria-hidden="true">
                     <div style={{ background: activeStep === 4 ? '#c1ff72' : 'rgba(9, 102, 255, 0.15)', borderRadius: '16px', padding: '40px' }}>
                       {activeStep === 0 && <Mail size={72} style={{ color: '#0966ff' }} />}
                       {activeStep === 1 && (
@@ -575,113 +555,123 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section - Dark Background */}
-      <section id="pricing-section" style={{ background: '#222733', padding: '120px 0' }}>
+      {/* Pricing Section - Vivid Blue Background */}
+      <section id="pricing-section" style={{ background: '#0966ff', padding: '120px 0' }}>
         <div className="container">
           <div className="text-center mb-5">
-            <span className="tag mb-3" style={{
-              display: 'inline-block',
-              padding: '8px 20px',
-              borderRadius: '12px',
-              background: 'rgba(193, 255, 114, 0.15)',
-              color: '#c1ff72',
-              fontWeight: '700',
-              fontSize: '0.85rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px'
-            }}>
-              Pricing
-            </span>
             <h2 style={{ color: '#ffffff', fontWeight: '900', fontStyle: 'italic', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}>
               Stop Guessing.{' '}
               <RoughAnnotation type="underline" color="#c1ff72" strokeWidth={3} padding={2} show={heroVisible} animationDuration={1000}>
                 Start Interviewing.
               </RoughAnnotation>
             </h2>
-            <p style={{ color: '#94a3b8', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
               Every package includes expert human review. No bots. No algorithms.
             </p>
           </div>
 
-          <div className="row justify-content-center g-4">
-            {/* Tier 1 */}
-            <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#ffffff', borderRadius: '20px', padding: '36px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div className="d-flex align-items-center mb-3">
-                  <Mail size={28} style={{ color: '#0966ff', marginRight: '12px' }} />
-                  <h4 style={{ color: '#222733', fontWeight: '800', margin: 0 }}>Resume Audit</h4>
+          {/* Video Delivered Group */}
+          <div className="text-center mb-3">
+            <span style={{ display: 'inline-block', background: 'rgba(255,255,255,0.2)', color: '#ffffff', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', padding: '6px 16px', borderRadius: '50px', fontWeight: '600' }}>Video Delivered</span>
+          </div>
+          <div className="row justify-content-center g-3 mb-5">
+            {/* Resume Audit - $69 */}
+            <div className="col-lg-5 col-md-6">
+              <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px', height: '100%' }}>
+                <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div style={{ flex: '1 1 200px' }}>
+                    <span style={{ display: 'inline-block', background: '#0966ff', color: '#ffffff', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', padding: '3px 8px', borderRadius: '50px', fontWeight: '700' }}>Video Delivered</span>
+                    <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '4px', fontSize: '1.2rem' }}>Resume Audit</h4>
+                    <p style={{ color: '#64748b', marginBottom: '0', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      In-depth review with suggested edits and video analysis.
+                    </p>
+                  </div>
+                  <div style={{ textAlign: 'center', minWidth: '120px' }}>
+                    <span style={{ fontSize: '2.5rem', fontWeight: '900', color: '#222733', display: 'block' }}>$69</span>
+                    <button onClick={() => navigate('/results/audit')} className="btn" style={{ background: '#0966ff', color: '#ffffff', fontWeight: '700', padding: '10px 24px', borderRadius: '10px', fontSize: '0.8rem' }}>
+                      Get Started
+                    </button>
+                  </div>
                 </div>
-                <p style={{ color: '#64748b', marginBottom: '16px' }}>Async review with video feedback.</p>
-                <div style={{ marginBottom: '24px' }}>
-                  <span style={{ fontSize: '3.5rem', fontWeight: '900', color: '#222733' }}>$69</span>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>72-Hour Turnaround</p>
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
-                  {['Personalized Video Diagnostic', 'Detailed Suggested Edits', 'ATS Compliance Check', 'Strengths & Weaknesses Breakdown'].map((item, i) => (
-                    <li key={i} className="d-flex align-items-start mb-3">
-                      <CheckCircle size={18} style={{ color: '#0966ff', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
-                      <span style={{ color: '#475569', fontSize: '0.95rem' }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => navigate('/results/audit')} className="btn w-100 mt-4" style={{ background: '#0966ff', color: '#ffffff', fontWeight: '700', padding: '16px', borderRadius: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Get My Grade
-                </button>
               </div>
             </div>
 
-            {/* Tier 2 - Featured */}
-            <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#ffffff', borderRadius: '20px', padding: '36px', height: '100%', display: 'flex', flexDirection: 'column', border: '3px solid #c1ff72', position: 'relative' }}>
-                <span style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', background: '#c1ff72', color: '#222733', fontWeight: '800', padding: '6px 20px', borderRadius: '8px', fontSize: '0.8rem', textTransform: 'uppercase' }}>
-                  Most Popular
+            {/* Resume Rewrite - $109 */}
+            <div className="col-lg-5 col-md-6">
+              <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px', height: '100%' }}>
+                <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div style={{ flex: '1 1 200px' }}>
+                    <span style={{ display: 'inline-block', background: '#0966ff', color: '#ffffff', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', padding: '3px 8px', borderRadius: '50px', fontWeight: '700' }}>Video Delivered</span>
+                    <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '4px', fontSize: '1.2rem' }}>Resume Rewrite</h4>
+                    <p style={{ color: '#64748b', marginBottom: '0', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      We rewrite your resume from scratch with video explanation.
+                    </p>
+                  </div>
+                  <div style={{ textAlign: 'center', minWidth: '120px' }}>
+                    <span style={{ fontSize: '2.5rem', fontWeight: '900', color: '#222733', display: 'block' }}>$109</span>
+                    <button onClick={() => navigate('/results/rewrite')} className="btn" style={{ background: '#0966ff', color: '#ffffff', fontWeight: '700', padding: '10px 24px', borderRadius: '10px', fontSize: '0.8rem' }}>
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="text-center my-5">
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontStyle: 'italic', margin: 0 }}>
+              Want real-time guidance? Work with us live.
+            </p>
+          </div>
+
+          {/* Live Call Group */}
+          <div className="text-center mb-3">
+            <span style={{ display: 'inline-block', background: 'rgba(255,255,255,0.2)', color: '#ffffff', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', padding: '6px 16px', borderRadius: '50px', fontWeight: '600' }}>Live Call</span>
+          </div>
+          <div className="row justify-content-center g-3">
+            {/* Resume Workshop - $129 */}
+            <div className="col-lg-5 col-md-6">
+              <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px', height: '100%', border: '3px solid #c1ff72', position: 'relative' }}>
+                <span style={{ position: 'absolute', top: '-12px', left: '24px', background: '#c1ff72', color: '#222733', fontWeight: '800', padding: '4px 12px', borderRadius: '6px', fontSize: '0.65rem', textTransform: 'uppercase' }}>
+                  Popular
                 </span>
-                <div className="d-flex align-items-center mb-3">
-                  <Video size={28} style={{ color: '#0966ff', marginRight: '12px' }} />
-                  <h4 style={{ color: '#222733', fontWeight: '800', margin: 0 }}>Deep Dive Workshop</h4>
+                <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div style={{ flex: '1 1 200px' }}>
+                    <span style={{ display: 'inline-block', background: '#c1ff72', color: '#222733', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', padding: '3px 8px', borderRadius: '50px', fontWeight: '700' }}>Live Call</span>
+                    <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '4px', fontSize: '1.2rem' }}>Resume Workshop</h4>
+                    <p style={{ color: '#64748b', marginBottom: '0', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      Live 1 on 1 session where we rewrite your resume together.
+                    </p>
+                  </div>
+                  <div style={{ textAlign: 'center', minWidth: '120px' }}>
+                    <span style={{ fontSize: '2.5rem', fontWeight: '900', color: '#222733', display: 'block' }}>$129</span>
+                    <button onClick={() => navigate('/results/workshop')} className="btn" style={{ background: '#c1ff72', color: '#222733', fontWeight: '800', padding: '10px 24px', borderRadius: '10px', fontSize: '0.8rem' }}>
+                      Book Session
+                    </button>
+                  </div>
                 </div>
-                <p style={{ color: '#64748b', marginBottom: '16px' }}>45-min live session with an expert.</p>
-                <div style={{ marginBottom: '24px' }}>
-                  <span style={{ fontSize: '3.5rem', fontWeight: '900', color: '#222733' }}>$129</span>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>Real-time via Zoom</p>
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
-                  {['45-Minute 1-on-1 Video Call', 'Real-Time Resume Rewrite', 'Expert Narrative Coaching', 'Session Recording Included', 'High-Impact Final Draft'].map((item, i) => (
-                    <li key={i} className="d-flex align-items-start mb-3">
-                      <CheckCircle size={18} style={{ color: '#c1ff72', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
-                      <span style={{ color: '#475569', fontSize: '0.95rem' }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => navigate('/results/workshop')} className="btn w-100 mt-4" style={{ background: '#c1ff72', color: '#222733', fontWeight: '800', padding: '16px', borderRadius: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Get Help From Humans
-                </button>
               </div>
             </div>
 
-            {/* Tier 3 */}
-            <div className="col-lg-4 col-md-6">
-              <div style={{ background: '#ffffff', borderRadius: '20px', padding: '36px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div className="d-flex align-items-center mb-3">
-                  <Briefcase size={28} style={{ color: '#0966ff', marginRight: '12px' }} />
-                  <h4 style={{ color: '#222733', fontWeight: '800', margin: 0 }}>Total Prep Bundle</h4>
+            {/* Workshop + Interview - $229 */}
+            <div className="col-lg-5 col-md-6">
+              <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px', height: '100%' }}>
+                <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div style={{ flex: '1 1 200px' }}>
+                    <span style={{ display: 'inline-block', background: '#c1ff72', color: '#222733', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', padding: '3px 8px', borderRadius: '50px', fontWeight: '700' }}>Live Call</span>
+                    <h4 style={{ color: '#222733', fontWeight: '800', marginBottom: '4px', fontSize: '1.2rem' }}>Workshop + Interview</h4>
+                    <p style={{ color: '#64748b', marginBottom: '0', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      Resume workshop plus mock interview with feedback.
+                    </p>
+                  </div>
+                  <div style={{ textAlign: 'center', minWidth: '120px' }}>
+                    <span style={{ fontSize: '2.5rem', fontWeight: '900', color: '#222733', display: 'block' }}>$229</span>
+                    <button onClick={() => navigate('/results/bundle')} className="btn" style={{ background: '#222733', color: '#ffffff', fontWeight: '700', padding: '10px 24px', borderRadius: '10px', fontSize: '0.8rem' }}>
+                      Book Session
+                    </button>
+                  </div>
                 </div>
-                <p style={{ color: '#64748b', marginBottom: '16px' }}>Resume + mock interview prep.</p>
-                <div style={{ marginBottom: '24px' }}>
-                  <span style={{ fontSize: '3.5rem', fontWeight: '900', color: '#222733' }}>$229</span>
-                  <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>Complete package</p>
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
-                  {['Full Deep Dive Session', 'Mock Interview Session', 'Performance Critique', 'Complete Coaching Package'].map((item, i) => (
-                    <li key={i} className="d-flex align-items-start mb-3">
-                      <Award size={18} style={{ color: '#0966ff', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
-                      <span style={{ color: '#475569', fontSize: '0.95rem' }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={() => navigate('/results/bundle')} className="btn w-100 mt-4" style={{ background: '#0966ff', color: '#ffffff', fontWeight: '700', padding: '16px', borderRadius: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Secure My Future
-                </button>
               </div>
             </div>
           </div>
@@ -718,7 +708,7 @@ const LandingPage = () => {
                 }}
               >
                 Get Results Today
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden="true" />
               </button>
             </div>
             <div className="col-lg-6 d-none d-lg-block">
@@ -746,64 +736,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      <section style={{ background: '#222733', padding: '120px 0' }}>
-        <div className="container">
-          <div className="text-center mb-5">
-            <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginBottom: '0', fontStyle: 'italic' }}>
-              "250 applications. 0 callbacks. Sound familiar?"
-            </p>
-          </div>
-
-          <div className="row justify-content-center g-5">
-            <div className="col-md-4 text-center">
-              <TrendingUp size={40} style={{ color: '#c1ff72', marginBottom: '16px' }} />
-              <h3 style={{ color: '#ffffff', fontWeight: '900', fontSize: 'clamp(3rem, 8vw, 5rem)', margin: 0, lineHeight: 1 }}>
-                <RoughAnnotation type="circle" color="#c1ff72" strokeWidth={2} padding={12} show={heroVisible} animationDuration={1000}>
-                  87%
-                </RoughAnnotation>
-              </h3>
-              <p style={{ color: '#94a3b8', margin: '16px 0 0', fontSize: '1.1rem' }}>get more interviews</p>
-            </div>
-            <div className="col-md-4 text-center">
-              <BarChart3 size={40} style={{ color: '#0966ff', marginBottom: '16px' }} />
-              <h3 style={{ color: '#ffffff', fontWeight: '900', fontSize: 'clamp(3rem, 8vw, 5rem)', margin: 0, lineHeight: 1 }}>D- to A+</h3>
-              <p style={{ color: '#94a3b8', margin: '16px 0 0', fontSize: '1.1rem' }}>average improvement</p>
-            </div>
-            <div className="col-md-4 text-center">
-              <Users size={40} style={{ color: '#c1ff72', marginBottom: '16px' }} />
-              <h3 style={{ color: '#ffffff', fontWeight: '900', fontSize: 'clamp(3rem, 8vw, 5rem)', margin: 0, lineHeight: 1 }}>
-                <RoughAnnotation type="underline" color="#0966ff" strokeWidth={3} padding={2} show={heroVisible} animationDuration={800}>
-                  100%
-                </RoughAnnotation>
-              </h3>
-              <p style={{ color: '#94a3b8', margin: '16px 0 0', fontSize: '1.1rem' }}>human-reviewed</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Data Security */}
-      <section style={{ background: '#222733', padding: '40px 0 100px' }}>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '16px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="d-flex align-items-center">
-                  <Lock size={48} style={{ color: '#c1ff72', marginRight: '24px', flexShrink: 0 }} />
-                  <div>
-                    <h4 style={{ color: '#ffffff', fontWeight: '800', marginBottom: '8px' }}>Your Data is Secure</h4>
-                    <p style={{ color: '#94a3b8', margin: 0 }}>
-                      Your resume is handled with the utmost confidentiality. We use industry-standard encryption and follow strict data privacy best practices.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </main>
 
       <Footer />
     </div>

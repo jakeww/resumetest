@@ -19,7 +19,13 @@ const Header = () => {
   });
 
   return (
-    <header className="navbar navbar-expand-lg navbar-dark sticky-top" style={{
+    <>
+      {/* Skip Link for ADA Compliance */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      <header className="navbar navbar-expand-lg navbar-dark sticky-top" role="banner" style={{
       zIndex: 1000,
       background: '#222733',
       borderBottom: '1px solid rgba(255,255,255,0.1)',
@@ -42,9 +48,12 @@ const Header = () => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
           style={{ borderColor: 'rgba(255,255,255,0.3)' }}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -55,6 +64,8 @@ const Header = () => {
                 style={navLinkStyle('/services')}
                 onMouseEnter={(e) => e.target.style.color = '#ffffff'}
                 onMouseLeave={(e) => e.target.style.color = location.pathname === '/services' ? '#ffffff' : '#94a3b8'}
+                onFocus={(e) => e.target.style.color = '#ffffff'}
+                onBlur={(e) => e.target.style.color = location.pathname === '/services' ? '#ffffff' : '#94a3b8'}
               >
                 Services
               </Link>
@@ -65,6 +76,8 @@ const Header = () => {
                 style={navLinkStyle('/about')}
                 onMouseEnter={(e) => e.target.style.color = '#ffffff'}
                 onMouseLeave={(e) => e.target.style.color = location.pathname === '/about' ? '#ffffff' : '#94a3b8'}
+                onFocus={(e) => e.target.style.color = '#ffffff'}
+                onBlur={(e) => e.target.style.color = location.pathname === '/about' ? '#ffffff' : '#94a3b8'}
               >
                 About
               </Link>
@@ -75,6 +88,8 @@ const Header = () => {
                 style={navLinkStyle('/faq')}
                 onMouseEnter={(e) => e.target.style.color = '#ffffff'}
                 onMouseLeave={(e) => e.target.style.color = location.pathname === '/faq' ? '#ffffff' : '#94a3b8'}
+                onFocus={(e) => e.target.style.color = '#ffffff'}
+                onBlur={(e) => e.target.style.color = location.pathname === '/faq' ? '#ffffff' : '#94a3b8'}
               >
                 FAQ
               </Link>
@@ -103,15 +118,24 @@ const Header = () => {
                   e.target.style.background = '#c1ff72';
                   e.target.style.transform = 'translateY(0)';
                 }}
+                onFocus={(e) => {
+                  e.target.style.background = '#b3f05e';
+                  e.target.style.transform = 'translateY(-2px)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.background = '#c1ff72';
+                  e.target.style.transform = 'translateY(0)';
+                }}
               >
                 Get Results
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </button>
             </li>
           </ul>
         </div>
       </div>
     </header>
+    </>
   );
 };
 

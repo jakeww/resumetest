@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import RoughAnnotation from '../components/RoughAnnotation';
-import { ChevronDown, Bot, Briefcase, CreditCard, Mail, ArrowRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -64,6 +65,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
               transition: 'transform 0.3s ease',
               transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
             }}
+            aria-hidden="true"
           />
         </div>
       </button>
@@ -88,30 +90,16 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
   );
 };
 
-const FAQSection = ({ title, icon: Icon, iconBg, faqs }) => {
+const FAQSection = ({ title, faqs }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <div style={{ marginBottom: '56px' }}>
       <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '16px',
         marginBottom: '28px',
         paddingBottom: '16px',
         borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
       }}>
-        <div style={{
-          width: '48px',
-          height: '48px',
-          background: iconBg,
-          borderRadius: '12px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          <Icon size={24} color="#ffffff" />
-        </div>
         <h2 style={{
           fontSize: '1.5rem',
           fontWeight: '700',
@@ -135,10 +123,10 @@ const FAQSection = ({ title, icon: Icon, iconBg, faqs }) => {
 };
 
 const FAQPage = () => {
-  const [ctaHovered, setCtaHovered] = useState(false);
   const [heroVisible, setHeroVisible] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setHeroVisible(true);
   }, []);
 
@@ -149,41 +137,49 @@ const FAQPage = () => {
     },
     {
       question: "Why shouldn't I just use a free online resume checker?",
-      answer: "Free checkers are algorithms. They check for typos and formatting rules. They cannot check for strategy, persuasion, or narrative."
+      answer: "Free checkers are algorithms. They check for typos and formatting rules. They cannot evaluate strategy, persuasion, or narrative. A real recruiter understands the nuance that algorithms miss, such as career gaps, industry pivots, and soft skills that matter."
     }
   ];
 
   const servicesFaqs = [
     {
-      question: "What is the difference between the \"Resume Audit\" and the \"Deep Dive\"?",
-      answer: "The Resume Audit ($69) is diagnostic. We tell you exactly what is wrong and how to fix it via comments and a video, but you do the rewriting. The Deep Dive ($129) is collaborative. You get on a Zoom call with one of our recruiters and we help you rewrite the document in real-time. If you want us to do the heavy lifting with you, choose the Deep Dive."
+      question: "What's the difference between your services?",
+      answer: (
+        <>
+          We offer four options: The <strong>Resume Audit ($69)</strong> is diagnostic. We tell you exactly what's wrong via a personalized video, but you do the rewriting. The <strong>Resume Rewrite ($109)</strong> is where we do the work, completely rewriting your resume and delivering it with a video explanation. The <strong>Resume Workshop ($129)</strong> is a live 45-minute Zoom call where we work on your resume together in real-time. The <strong>Workshop + Interview Prep ($229)</strong> adds a mock interview with detailed feedback to the workshop.
+        </>
+      )
     },
     {
       question: "What industries do you specialize in?",
-      answer: "Our team has successfully helped candidates in Tech, Sales, Marketing, Healthcare, Operations, and Finance. The principles of a great resume—clear metrics, strong \"Action Verbs,\" and a clean narrative—apply to almost every industry. If you work in a highly specialized academic or federal field, please contact us first so we can pair you with the right specialist."
+      answer: "Our team has successfully helped candidates in Tech, Sales, Marketing, Healthcare, Operations, and Finance. The principles of a great resume, including clear metrics, strong \"Action Verbs,\" and a clean narrative, apply to almost every industry. If you work in a highly specialized academic or federal field, please contact us first so we can pair you with the right specialist."
     },
     {
-      question: "How does the \"Video Diagnostic\" work?",
-      answer: "For the Resume Audit, your assigned recruiter records their screen as they read your resume for the first time. They talk through their reactions live, pointing out where they got confused, where they were impressed, and where you lost their attention. It is the closest thing to sitting inside a hiring manager's brain while they review your application."
+      question: "How does the Video Diagnostic work?",
+      answer: "For the Resume Audit and Resume Rewrite, your assigned recruiter records their screen as they review your resume. They talk through their reactions live, pointing out where they got confused, where they were impressed, and where you lost their attention. It's the closest thing to sitting inside a hiring manager's brain while they review your application."
     },
     {
       question: "How quickly will I get my feedback?",
-      answer: "We pride ourselves on efficiency. For the Resume Audit, you will receive your graded resume and video within 48 hours (business days). For the Deep Dive and Total Prep, availability depends on our current booking calendar, but we offer evening and weekend slots to accommodate working professionals."
+      answer: "For video-delivered services (Resume Audit and Resume Rewrite), you'll receive your materials within 72 business hours. For live sessions (Resume Workshop and Workshop + Interview Prep), availability depends on our current booking calendar, but we offer evening and weekend slots to accommodate working professionals."
+    },
+    {
+      question: "What if I don't have a resume yet?",
+      answer: "No problem. Our Resume Rewrite and Resume Workshop services can create a resume from scratch. Just submit your background information, work history, and career goals, and we'll build a professional resume for you."
     }
   ];
 
   const paymentFaqs = [
     {
       question: "Do you guarantee I will get a job?",
-      answer: "No ethical agency can guarantee a job offer, as we do not control the final hiring decision. However, we guarantee satisfaction with the document. If you follow the strategies we implement and don't see an increase in interviews, we will happily do a follow-up review to tweak the strategy."
+      answer: "No ethical service can guarantee a job offer, as we don't control the final hiring decision. However, we guarantee satisfaction with the work. If you follow the strategies we implement and don't see an improvement in your response rate, we'll happily do a follow-up review to refine the approach."
     },
     {
-      question: "What if I book the $69 audit but realize I need more help?",
-      answer: "We understand that sometimes, after receiving your feedback, you may decide you want a professional to handle the actual writing process for you. If you choose to upgrade to the Live Workshop, simply email our support team. We will apply your full $69 payment as a credit toward the upgrade price."
+      question: "What if I start with the Audit but realize I need more help?",
+      answer: "We understand that sometimes, after receiving your feedback, you may decide you want more hands-on assistance. If you choose to upgrade to the Resume Rewrite or Resume Workshop, simply email our team at team@theresumetest.com. We'll apply your full $69 payment as a credit toward the upgrade price."
     },
     {
       question: "What is your refund policy?",
-      answer: "Because this is a service involving our team's personal time and intellectual property, we do not offer refunds once the review has been delivered or the live call has been held. However, if you are unsatisfied, we will work with you on revisions until we get it right."
+      answer: "Because this is a service involving our team's personal time and intellectual property, we do not offer refunds once the review has been delivered or the live call has been held. However, if you're unsatisfied, we'll work with you on revisions until we get it right."
     }
   ];
 
@@ -191,12 +187,11 @@ const FAQPage = () => {
     <div className="min-vh-100 d-flex flex-column" style={{ background: '#222733' }}>
       <Header />
 
-      <main className="flex-grow-1">
-        {/* Hero Section - Dark */}
+      <main id="main-content" role="main" className="flex-grow-1">
+        {/* Hero Section */}
         <section style={{
           background: '#222733',
-          padding: '100px 0 80px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+          padding: '80px 0 60px'
         }}>
           <div className="container text-center">
             <span className="tag mb-4" style={{
@@ -216,7 +211,7 @@ const FAQPage = () => {
               fontWeight: '900',
               fontStyle: 'italic',
               color: '#ffffff',
-              fontSize: '3rem',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
               lineHeight: '1.2',
               marginBottom: '24px'
             }}>
@@ -228,7 +223,7 @@ const FAQPage = () => {
                 show={heroVisible}
                 animationDuration={1000}
               >
-                Common Questions.
+                Common Questions
               </RoughAnnotation>
             </h1>
             <p style={{
@@ -236,7 +231,7 @@ const FAQPage = () => {
               maxWidth: '650px',
               margin: '0 auto',
               lineHeight: '1.8',
-              fontSize: '1.25rem'
+              fontSize: '1.15rem'
             }}>
               Everything you need to know about our team, our process, and why a{' '}
               <RoughAnnotation
@@ -254,29 +249,23 @@ const FAQPage = () => {
           </div>
         </section>
 
-        {/* FAQ Content - White */}
-        <section style={{ padding: '100px 0 80px', background: '#ffffff' }}>
+        {/* FAQ Content */}
+        <section style={{ padding: '80px 0', background: '#ffffff' }}>
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-8">
                 <FAQSection
-                  title={'The "Anti-AI" Philosophy'}
-                  icon={Bot}
-                  iconBg="#0966ff"
+                  title="The Human Difference"
                   faqs={antiAIFaqs}
                 />
 
                 <FAQSection
-                  title="The Services & Process"
-                  icon={Briefcase}
-                  iconBg="#059669"
+                  title="Services & Process"
                   faqs={servicesFaqs}
                 />
 
                 <FAQSection
-                  title="Guarantees & Payment"
-                  icon={CreditCard}
-                  iconBg="#7c3aed"
+                  title="Payment & Guarantees"
                   faqs={paymentFaqs}
                 />
               </div>
@@ -284,25 +273,12 @@ const FAQPage = () => {
           </div>
         </section>
 
-        {/* CTA Section - Dark */}
+        {/* CTA Section */}
         <section style={{
-          padding: '80px 0',
-          background: '#222733',
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+          padding: '60px 0',
+          background: '#222733'
         }}>
           <div className="container text-center">
-            <div style={{
-              width: '64px',
-              height: '64px',
-              background: 'rgba(193, 255, 114, 0.15)',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 24px'
-            }}>
-              <Mail size={28} color="#c1ff72" />
-            </div>
             <h3 style={{
               fontWeight: '900',
               fontStyle: 'italic',
@@ -313,34 +289,29 @@ const FAQPage = () => {
               Still have questions?
             </h3>
             <p style={{
-              fontSize: '1.15rem',
+              fontSize: '1.1rem',
               color: '#94a3b8',
-              marginBottom: '32px',
+              marginBottom: '28px',
               maxWidth: '500px',
-              margin: '0 auto 32px'
+              margin: '0 auto 28px'
             }}>
-              We are happy to help. Reach out and we will get back to you within 24 hours.
+              We're happy to help. Reach out and we'll get back to you within 24 hours.
             </p>
-            <a
-              href="mailto:support@theresumetest.com"
-              className="d-inline-flex align-items-center gap-2"
+            <Link
+              to="/contact"
               style={{
-                background: ctaHovered ? '#b3f05e' : '#c1ff72',
+                display: 'inline-block',
+                background: '#c1ff72',
                 color: '#222733',
                 padding: '16px 40px',
                 borderRadius: '50px',
                 textDecoration: 'none',
                 fontWeight: '700',
-                fontSize: '1.05rem',
-                transition: 'all 0.2s ease',
-                transform: ctaHovered ? 'translateY(-2px)' : 'translateY(0)'
+                fontSize: '1.05rem'
               }}
-              onMouseEnter={() => setCtaHovered(true)}
-              onMouseLeave={() => setCtaHovered(false)}
             >
               Contact Us
-              <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </section>
       </main>

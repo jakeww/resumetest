@@ -12,7 +12,7 @@ const ResultsWorkshopPage = () => {
   const features = [
     {
       icon: <Video size={24} />,
-      title: '45-Minute Live Session',
+      title: '45 Minute Live Call',
       description: 'Work directly with a recruiter via Zoom'
     },
     {
@@ -36,6 +36,7 @@ const ResultsWorkshopPage = () => {
     <div style={{ background: '#222733', minHeight: '100vh' }}>
       <Header />
 
+      <main id="main-content" role="main">
       {/* Hero Section */}
       <section style={{
         background: '#222733',
@@ -72,7 +73,7 @@ const ResultsWorkshopPage = () => {
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
               }}>
-                $129 - Live 1-on-1 Session
+                $129, Live 1 on 1 Session
               </div>
 
               <h1 style={{
@@ -183,7 +184,7 @@ const ResultsWorkshopPage = () => {
       }}>
         <div className="container">
           <div className="d-flex justify-content-center align-items-center gap-2">
-            <CheckCircle size={20} color="#ffffff" />
+            <CheckCircle size={20} color="#ffffff" aria-hidden="true" />
             <p style={{
               color: '#ffffff',
               fontSize: '1rem',
@@ -195,6 +196,7 @@ const ResultsWorkshopPage = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>
