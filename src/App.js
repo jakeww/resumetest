@@ -13,11 +13,13 @@ import AccessibilityPage from './pages/AccessibilityPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ContactPage from './pages/ContactPage';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 function App() {
   return (
     <Router>
+      <Analytics />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/services" element={<ServicesPage />} />
