@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import ServicesPage from './pages/ServicesPage';
-import AboutPage from './pages/AboutPage';
-import FAQPage from './pages/FAQPage';
+import InfoPage from './pages/InfoPage';
+import TemplatesPage from './pages/TemplatesPage';
 import ResultsPage from './pages/ResultsPage';
 import ResultsAuditPage from './pages/ResultsAuditPage';
 import ResultsRewritePage from './pages/ResultsRewritePage';
@@ -23,8 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/info" element={<InfoPage />} />
+        <Route path="/templates" element={<TemplatesPage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/results/audit" element={<ResultsAuditPage />} />
         <Route path="/results/rewrite" element={<ResultsRewritePage />} />

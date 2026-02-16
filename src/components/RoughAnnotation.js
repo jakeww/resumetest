@@ -51,8 +51,12 @@ const RoughAnnotation = ({
   }, [show]);
 
   return (
-    <span ref={elementRef} style={{ display: 'inline', position: 'relative' }}>
-      <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
+    <span
+      ref={elementRef}
+      style={{ display: 'inline', position: 'relative' }}
+      className="rough-annotation-wrapper"
+    >
+      <span style={{ position: 'relative', zIndex: 2 }}>{children}</span>
     </span>
   );
 };

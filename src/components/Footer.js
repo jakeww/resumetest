@@ -26,8 +26,8 @@ const Footer = () => {
           <div className="col-md-4 mb-4 mb-md-0 text-md-center">
             <div className="d-flex justify-content-md-center gap-4">
               <Link to="/services" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Services</Link>
-              <Link to="/about" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>About</Link>
-              <Link to="/faq" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>FAQ</Link>
+              <Link to="/templates" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Templates</Link>
+              <Link to="/info" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Info</Link>
               <Link to="/contact" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem' }}>Contact</Link>
             </div>
           </div>

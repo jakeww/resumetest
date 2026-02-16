@@ -255,3 +255,59 @@ a:focus-visible {
   white-space: nowrap;
   border: 0;
 }
+
+/* ===== ROUGH ANNOTATION Z-INDEX FIX ===== */
+/* Ensure rough-notation SVGs render behind text */
+.rough-annotation-wrapper svg {
+  z-index: 0 !important;
+}
+
+.rough-annotation-wrapper > span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== MOBILE RESPONSIVE UTILITIES ===== */
+
+/* Show on mobile only */
+.d-mobile-only {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .d-mobile-only {
+    display: none !important;
+  }
+}
+
+/* Show on desktop only */
+.d-desktop-only {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .d-desktop-only {
+    display: block;
+  }
+}
+
+/* Flex variants */
+.d-mobile-only-flex {
+  display: flex;
+}
+
+@media (min-width: 992px) {
+  .d-mobile-only-flex {
+    display: none !important;
+  }
+}
+
+.d-desktop-only-flex {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .d-desktop-only-flex {
+    display: flex;
+  }
+}

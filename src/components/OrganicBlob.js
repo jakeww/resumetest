@@ -5,7 +5,8 @@ const OrganicBlob = ({
   size = 400,
   style = {},
   variant = 1,
-  opacity = 0.3
+  opacity = 0.3,
+  className = ''
 }) => {
   // Different blob path variants for variety
   const blobPaths = {
@@ -21,6 +22,7 @@ const OrganicBlob = ({
     <svg
       viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       style={{
         width: size,
         height: size,

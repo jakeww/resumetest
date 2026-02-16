@@ -79,13 +79,14 @@ const LandingPage = () => {
               </button>
             </div>
 
-            <div className="col-lg-5 d-none d-lg-block">
-              <div style={{ position: 'relative' }}>
+            <div className="col-lg-5 mt-5 mt-lg-0">
+              <div style={{ position: 'relative' }} className="text-center text-lg-start">
                 <OrganicBlob
                   color="#c1ff72"
                   size={450}
                   opacity={0.15}
                   variant={1}
+                  className="d-none d-lg-block"
                   style={{ top: '-50px', right: '-50px', zIndex: 0 }}
                 />
                 <img
@@ -311,9 +312,12 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Arrow between cards */}
+            {/* Arrow between cards - Right on desktop, Down on mobile */}
             <div className="col-auto d-none d-lg-flex align-items-center justify-content-center" style={{ padding: '0 10px' }}>
               <HandDrawnArrow color="#c1ff72" width={80} height={40} strokeWidth={4} direction="right" />
+            </div>
+            <div className="col-12 d-flex d-lg-none align-items-center justify-content-center" style={{ padding: '20px 0' }}>
+              <HandDrawnArrow color="#c1ff72" width={60} height={50} strokeWidth={4} direction="down" />
             </div>
 
             <div className="col-lg-5 col-md-6">
@@ -711,13 +715,14 @@ const LandingPage = () => {
                 <ArrowRight size={20} aria-hidden="true" />
               </button>
             </div>
-            <div className="col-lg-6 d-none d-lg-block">
+            <div className="col-lg-6 mt-5 mt-lg-0">
               <div style={{ position: 'relative', textAlign: 'center' }}>
                 <OrganicBlob
                   color="#222733"
                   size={400}
                   opacity={0.1}
                   variant={3}
+                  className="d-none d-lg-block"
                   style={{ top: '-30px', left: '50%', transform: 'translateX(-50%)', zIndex: 0 }}
                 />
                 <img

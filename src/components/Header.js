@@ -72,26 +72,26 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/about"
-                style={navLinkStyle('/about')}
+                to="/templates"
+                style={navLinkStyle('/templates')}
                 onMouseEnter={(e) => e.target.style.color = '#ffffff'}
-                onMouseLeave={(e) => e.target.style.color = location.pathname === '/about' ? '#ffffff' : '#94a3b8'}
+                onMouseLeave={(e) => e.target.style.color = location.pathname === '/templates' ? '#ffffff' : '#94a3b8'}
                 onFocus={(e) => e.target.style.color = '#ffffff'}
-                onBlur={(e) => e.target.style.color = location.pathname === '/about' ? '#ffffff' : '#94a3b8'}
+                onBlur={(e) => e.target.style.color = location.pathname === '/templates' ? '#ffffff' : '#94a3b8'}
               >
-                About
+                Templates
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/faq"
-                style={navLinkStyle('/faq')}
+                to="/info"
+                style={navLinkStyle('/info')}
                 onMouseEnter={(e) => e.target.style.color = '#ffffff'}
-                onMouseLeave={(e) => e.target.style.color = location.pathname === '/faq' ? '#ffffff' : '#94a3b8'}
+                onMouseLeave={(e) => e.target.style.color = location.pathname === '/info' ? '#ffffff' : '#94a3b8'}
                 onFocus={(e) => e.target.style.color = '#ffffff'}
-                onBlur={(e) => e.target.style.color = location.pathname === '/faq' ? '#ffffff' : '#94a3b8'}
+                onBlur={(e) => e.target.style.color = location.pathname === '/info' ? '#ffffff' : '#94a3b8'}
               >
-                FAQ
+                Info
               </Link>
             </li>
             <li className="nav-item">
